@@ -1,19 +1,11 @@
 class Tree
     attr_accessor :children, :node_name
 
-    def initialize(hash)
+    def initialize(name, hash)
+        @node_name = name
         @children = []
         hash.each_pair do |key, value|
-            add_child(hash)
-        end
-    end
-
-    def add_child(hash)
-        hash.each_pair do |key, value|
-            @children.push(key)
-            if value.length > 0
-                add_child(value)
-            end
+            @children.push(Tree.new(key, value))
         end
     end
 
@@ -27,9 +19,7 @@ class Tree
     end
 end
 
-ruby_tree = Tree.new( "Ruby",
-                     [Tree.new("Reia"),
-                      Tree.new("MacRuby")])
+ruby_tree = Tree.new("Family", { 'grandpa' => { 'dad' => { 'child 1' => {}, 'child 2' => {} }, 'uncle' => { 'child 3' => {}, 'child 4' => {} } } })
 
 puts "Visiting a node"
 ruby_tree.visit {|node| puts node.node_name}
