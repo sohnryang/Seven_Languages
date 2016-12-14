@@ -1,6 +1,7 @@
 file_name = ARGV[0]
-File.readlines(file_name).each do |line|
-    if ARGV[1] =~ line
+regex = Regexp.new ARGV[1]
+File.read(file_name).each_line do |line|
+    if (ARGV[1] =~ regex) == 0
         puts line
     end
 end
