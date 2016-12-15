@@ -9,3 +9,5 @@ Some clarifying of file names:
 `rubygrep.rb` is making regular expression tool with ruby.
 
 `tree_improved.rb` is a tree gets a map in its constructor.
+
+`csv_row` is answer code of coding CsvRow
