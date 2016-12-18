@@ -1,15 +1,14 @@
-Object fib := method (n,
-    first := 0
+fib := method(n,
+    if(n == 1 or n == 2, 1)
+    first := 1
     second := 1
-    next := 0
-    for(i, 0, n - 1, 
-        if(i <= 1) 
-        then(
-            next = i,
-            next = first + second
-            first = second
-            second = next
-        )
+    next := 2
+    for(i, 3, n,
+        next = first + second
+        first = second
+        second = next
     )
     next
 )
+
+fib(3) asString println
