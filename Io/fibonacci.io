@@ -10,5 +10,3 @@ fib := method(n,
     )
     next
 )
-
-fib(3) asString println
